@@ -234,7 +234,7 @@ def info(update: Update, context: CallbackContext):
     rep = message.reply_text(
         "<code>Appraising...</code>", parse_mode=ParseMode.HTML)
 
-    text = (f"╒═══「<b> Appraisal results:</b> 」\n"
+    text = (f" ✿ <b>General :</b> \n"
             f"ID: <code>{user.id}</code>\n"
             f"First Name: {html.escape(user.first_name)}")
 
@@ -282,7 +282,7 @@ def info(update: Update, context: CallbackContext):
         text += "\n\nThe Disaster level of this person is 'God'."
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += "\n\nThe Disaster level of this person is 'King'."
+        text += "\n\nThis person is the second most powerful after my God."
         disaster_level_present = True
     elif user.id in DRAGONS:
         text += "\n\nThe Hunter skill of this person is 'S-RANK Dragon'."
@@ -404,7 +404,6 @@ def set_about_me(update: Update, context: CallbackContext):
                     MAX_MESSAGE_LENGTH // 4, len(info[1])
                 )
             )
-
 
 @run_async
 @sudo_plus

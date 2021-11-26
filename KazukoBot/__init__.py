@@ -7,6 +7,7 @@ import spamwatch
 import telegram.ext as tg
 from pyrogram import Client, errors
 from telethon import TelegramClient
+from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 
 StartTime = time.time()
 
@@ -24,11 +25,11 @@ logging.getLogger('ptbcontrib.postgres_persistence.postgrespersistence').setLeve
 log.info("------------------------------")
 log.info("|   Loading repository...   |")
 log.info("------------------------------")
-log.info("[KAZUKO] Kazuko is starting. | CFC Empire Project. | Licensed under GPLv3.")
+log.info("[KAZUKO] Kazuko is starting. | Phoenix Empire Project. | Licensed under GPLv3.")
 log.info("[KAZUKO] Not affiliated to Azur Lane or Yostar in any way whatsoever.")
 log.info("[KAZUKO] Project maintained by: github.com/heyaaman (t.me/heyaaman)")
 log.info("------------------------")
-log.info("| Deploying Kazuko ♡  |")
+log.info("| Deploying Kazuko... |")
 log.info("------------------------")
 LOGGER = logging.getLogger(__name__)
 
@@ -104,7 +105,7 @@ if ENV:
     WALL_API = os.environ.get("WALL_API", None)
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", None)
     SPAMWATCH_SUPPORT_CHAT = os.environ.get("SPAMWATCH_SUPPORT_CHAT", None)
-    SPAMWATCH_API = os.environ.get("SPAMWATCH_API", None)
+    SPAMWATCH = os.environ.get("SPAMWATCH_API", None)
     LOG_GROUP_ID = os.environ.get('LOG_GROUP_ID', None)
     ALLOW_CHATS = os.environ.get("ALLOW_CHATS", True)
 
@@ -178,7 +179,7 @@ else:
     WALL_API = Config.WALL_API
     SUPPORT_CHAT = Config.SUPPORT_CHAT
     SPAMWATCH_SUPPORT_CHAT = Config.SPAMWATCH_SUPPORT_CHAT
-    SPAMWATCH_API = Config.SPAMWATCH_API
+    SPAMWATCH = Config.SPAMWATCH_API
     INFOPIC = Config.INFOPIC
     REDIS_URL = Config.REDIS_URL
     
@@ -187,12 +188,26 @@ else:
     except ValueError:
         raise Exception("Your blacklisted chats list does not contain valid integers.")
 
+#Don't change 
+
 DRAGONS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
 DEV_USERS.add(1831008142)
 DEV_USERS.add(1821151467)
 
-if not SPAMWATCH_API:
+# Pass if SpamWatch token not set.
+if SPAMWATCH is None:
+    spamwtc = None
+    LOGGER.warning("[Kazuko] Invalid spamwatch api")
+else:
+    spamwtc = spamwatch.Client(SPAMWATCH)
+
+# MongoDB client
+print("[INFO]: INITIALIZING DATABASE")
+mongo_client = MongoClient(MONGO_DB_URI)
+db = mongo_client.KazukoBot
+
+if not SPAMWATCH:
     sw = None
     LOGGER.warning("SpamWatch API key missing! recheck your config.")
 else:
@@ -206,8 +221,8 @@ updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("kazuko", API_ID, API_HASH)
 pgram = Client("kazukoPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 pbot = Client("kazukopbot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+app = Client("kazuko", bot_token=TOKEN, api_id=API_ID, api_hash=API_HASH)
 dispatcher = updater.dispatcher
-
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)

@@ -29,6 +29,31 @@ from KazukoBot.modules.log_channel import loggable
 from KazukoBot.modules.helper_funcs.alternate import send_message
 from KazukoBot.modules.helper_funcs.alternate import typing_action
 
+async def member_permissions(chat_id: int, user_id: int):
+    perms = []
+    try:
+        member = await app.get_chat_member(chat_id, user_id)
+    except Exception:
+        return []
+    if member.can_post_messages:
+        perms.append("can_post_messages")
+    if member.can_edit_messages:
+        perms.append("can_edit_messages")
+    if member.can_delete_messages:
+        perms.append("can_delete_messages")
+    if member.can_restrict_members:
+        perms.append("can_restrict_members")
+    if member.can_promote_members:
+        perms.append("can_promote_members")
+    if member.can_change_info:
+        perms.append("can_change_info")
+    if member.can_invite_users:
+        perms.append("can_invite_users")
+    if member.can_pin_messages:
+        perms.append("can_pin_messages")
+    if member.can_manage_voice_chats:
+        perms.append("can_manage_voice_chats")
+    return perms
 
 @run_async
 @connection_status
@@ -111,6 +136,86 @@ def promote(update: Update, context: CallbackContext) -> str:
     )
 
     return log_message
+
+
+@run_async
+@connection_status
+@bot_admin
+@can_promote
+@user_admin
+@loggable
+def fullpromote(update, context):
+    message = update.effective_message
+    chat = update.effective_chat
+    user = update.effective_user
+    bot, args = context.bot, context.args
+
+    if user_can_promote(chat, user, bot.id) is False:
+        message.reply_text("You don't have enough rights to promote someone!")
+        return ""
+
+    user_id = extract_user(message, args)
+    if not user_id:
+        message.reply_text("mention one...")
+        return ""
+
+    user_member = chat.get_member(user_id)
+    if user_member.status in ["administrator", "creator"]:
+        message.reply_text("This person is already an admin...!")
+        return ""
+
+    if user_id == bot.id:
+        message.reply_text("I hope, if i could promote myself!")
+        return ""
+
+    # set same perms as bot - bot can't assign higher perms than itself!
+    bot_member = chat.get_member(bot.id)
+
+    bot.promoteChatMember(
+        chat.id,
+        user_id,
+        can_change_info=bot_member.can_change_info,
+        can_post_messages=bot_member.can_post_messages,
+        can_edit_messages=bot_member.can_edit_messages,
+        can_delete_messages=bot_member.can_delete_messages,
+        can_invite_users=bot_member.can_invite_users,
+        can_promote_members=bot_member.can_promote_members,
+        can_restrict_members=bot_member.can_restrict_members,
+        can_pin_messages=bot_member.can_pin_messages,
+        can_manage_voice_chats=bot_member.can_manage_voice_chats,
+    )
+
+    title = "admin"
+    if " " in message.text:
+        title = message.text.split(" ", 1)[1]
+        if len(title) > 16:
+            message.reply_text(
+                "The title length is longer than 16 characters.\nTruncating it to 16 characters."
+            )
+
+        try:
+            bot.setChatAdministratorCustomTitle(chat.id, user_id, title)
+
+        except BadRequest:
+            message.reply_text(
+                "I can't set custom title for admins that I didn't promote!"
+            )
+
+    message.reply_text(
+        f"Fully Promoted <b>{user_member.user.first_name or user_id}</b>"
+        + f" with title <code>{title[:16]}</code>!",
+        parse_mode=ParseMode.HTML,
+    )
+    return (
+        "<b>{}:</b>"
+        "\n#FULLPROMOTED"
+        "\n<b>Admin:</b> {}"
+        "\n<b>User:</b> {}".format(
+            html.escape(chat.title),
+            mention_html(user.id, user.first_name),
+            mention_html(user_member.user.id, user_member.user.first_name),
+        )
+    )
 
 
 @run_async
@@ -643,6 +748,7 @@ __help__ = """
  ❍ /unpin*:* unpins the currently pinned message
  ❍ /invitelink*:* gets invitelink
  ❍ /promote*:* promotes the user
+ ❍ /fullpromote <title>: Promotes the user replied to with ful rights.
  ❍ /demote*:* demotes the user
  ❍ /title <title here>*:* sets a custom title for an admin that the bot promoted
  ❍ /setgtitle <newtitle>*:* Sets new chat title in your group.

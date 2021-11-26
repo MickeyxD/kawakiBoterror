@@ -1,15 +1,15 @@
-![KazukoRobot](https://telegra.ph/file/108bd234140cbe382e3fe.jpg)
+![KazukoRobot](https://telegra.ph/file/350a261b482087527394f.jpg)
 # Kazuko Robot 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6141417ceaf84545bab6bd671503df51)](https://app.codacy.com/gh/heyaaman/KazukoBot?utm_source=github.com&utm_medium=referral&utm_content=heyaaman/KazukoBot&utm_campaign=Badge_Grade_Settings)  [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/heyaaman/KazukoBot/graphs/commit-activity) [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://perso.crans.org/besson/LICENSE.html) [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com) [![Updates channel!](https://img.shields.io/badge/Join%20Channel-!-red)](https://t.me/Phoenix_Empire)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6141417ceaf84545bab6bd671503df51)](https://app.codacy.com/gh/heyaaman/KazukoBot?utm_source=github.com&utm_medium=referral&utm_content=heyaaman/KazukoBot&utm_campaign=Badge_Grade_Settings)  [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/heyaaman/KazukoBot/graphs/commit-activity) [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://perso.crans.org/besson/LICENSE.html) [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com) [![Updates channel!](https://img.shields.io/badge/Join%20Channel-!-red)](https://t.me/KazukoUpdates)
 
 A Telegram Python bot running on python3 forked with saitama and DiasyX with a sqlalchemy database and an entirely themed persona to make Kazuko fun and good management for you in your groups.
 
 Can be found on telegram as [KazukoBot](https://t.me/KazukoRobot).
 
-The Support group can be reached out to at [CFC BOT SUPPORT](https://t.me/CFC_BOT_support), where you can ask for help , discover new features, report bugs, and stay in the loop whenever a new update is available. 
+The Support group can be reached out to at [Kazuko Support](https://t.me/KazukoSupportChat), where you can ask for help , discover new features, report bugs, and stay in the loop whenever a new update is available. 
 
 
-News channel as at [Kazuko Updates](https://t.me/Phoenix_Empire)
+News channel as at [Kazuko Updates](https://t.me/KazukoUpdates)
 
 ### How to setup/deploy.
 
@@ -68,12 +68,6 @@ class Development(Config):
 
 If you can't have a config.py file (EG on Heroku), it is also possible to use environment variables.
 So just go and read the config sample file. 
-
-### Heroku Deploy 
-The easiest way to deploy this Bot is via Heroku.
-
-<p align="left"><a href="https://heroku.com/deploy?template=https://github.com/heyaaman/KazukoBot"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-black?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
-
 
   ### Python dependencies
 
@@ -178,8 +172,12 @@ CREDITS
 ❤️ Saitama = Sawada
 ❤️ DaisyX = Inuka
 ❤️ Yone = Noob kittu 
+❤️ William Butcher Bot = TheHamkerCat
+❤️ Developed by = heyaaman
 ```
 This Bot Is Developed By [heyaaman](https://github.com/heyaaman) 
+
+## Note : While kanging or forking this repo don't change credits.
 
 ## Find me on telegram 
 [![Telegram](https://img.shields.io/badge/heyaaman-1b77FF.svg?style=for-the-badge&logo=telegram)](https://t.me/heyaaman)
