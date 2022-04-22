@@ -1,21 +1,21 @@
-![KazukoRobot](https://telegra.ph/file/350a261b482087527394f.jpg)
-# Kazuko Robot 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6141417ceaf84545bab6bd671503df51)](https://app.codacy.com/gh/heyaaman/KazukoBot?utm_source=github.com&utm_medium=referral&utm_content=heyaaman/KazukoBot&utm_campaign=Badge_Grade_Settings)  [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/heyaaman/KazukoBot/graphs/commit-activity) [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://perso.crans.org/besson/LICENSE.html) [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com) [![Updates channel!](https://img.shields.io/badge/Join%20Channel-!-red)](https://t.me/KazukoUpdates)
+![KawakiRobot](https://telegra.ph/file/350a261b482087527394f.jpg)
+# Kawaki Robot 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6141417ceaf84545bab6bd671503df51)](https://app.codacy.com/gh/MickeyxD/KawakiBot?utm_source=github.com&utm_medium=referral&utm_content=MickeyxD/KawakiBot&utm_campaign=Badge_Grade_Settings)  [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/MickeyxD/KawakiBot/graphs/commit-activity) [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://perso.crans.org/besson/LICENSE.html) [![Open Source Love svg2](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com) [![Updates channel!](https://img.shields.io/badge/Join%20Channel-!-red)](https://t.me/KazukoUpdates)
 
-A Telegram Python bot running on python3 forked with saitama and DiasyX with a sqlalchemy database and an entirely themed persona to make Kazuko fun and good management for you in your groups.
+A Telegram Python bot running on python3 forked with saitama and DiasyX with a sqlalchemy database and an entirely themed persona to make Kawaki fun and good management for you in your groups.
 
-Can be found on telegram as [KazukoBot](https://t.me/KazukoRobot).
+Can be found on telegram as [KawakiBot](https://t.me/Kawaki_Robot).
 
-The Support group can be reached out to at [Kazuko Support](https://t.me/KazukoSupportChat), where you can ask for help , discover new features, report bugs, and stay in the loop whenever a new update is available. 
+The Support group can be reached out to at [Kazuko Support](https://t.me/KawakiSupportChat), where you can ask for help , discover new features, report bugs, and stay in the loop whenever a new update is available. 
 
 
-News channel as at [Kazuko Updates](https://t.me/KazukoUpdates)
+News channel as at [Kawaki Updates](https://t.me/KawakiUpdates)
 
 
 ### Heroku Deploy 
 The easiest way to deploy this Bot is via Heroku.
 
-<p align="left"><a href="https://heroku.com/deploy?template=https://github.com/heyaaman/KazukoBot"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-black?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
+<p align="left"><a href="https://heroku.com/deploy?template=https://github.com/MickeyxD/KawakiBot"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-black?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
 
 ### How to setup/deploy.
 
@@ -144,7 +144,7 @@ All that is needed is that your .py file is in the modules folder.
 
 To add commands, make sure to import the dispatcher via
 
-`from KazukoBot import dispatcher`.
+`from KawakiBot import dispatcher`.
 
 You can then add commands using the usual
 
@@ -170,7 +170,7 @@ You can use [nssm](https://nssm.cc/usage) to install the bot as service on windo
 Make sure to edit the start and restart bats to your needs. 
 Note: the restart bat requires that User account control be disabled.
 
-For queries or any issues regarding the bot please open an issue ticket or visit us at [Kazuko Support](https://t.me/KazukoSupportChat)
+For queries or any issues regarding the bot please open an issue ticket or visit us at [Kawaki Support](https://t.me/KawakiSupportChat)
 
 ## Thank you [Alpha Coders](https://alphacoders.com) for the wallpaper API and Support ❤️
 
@@ -181,13 +181,13 @@ CREDITS
 ❤️ Saitama = Sawada
 ❤️ DaisyX = Inuka
 ❤️ Yone = Noob kittu 
-❤️ Developed by = heyaaman
+❤️ Developed by = MickeyxD
 ```
 ## Note : While kanging or forking this repo don't change credits.
 
-This repository is a mix set of other bot repositorys which mentioned on credits above developed By [heyaaman](https://github.com/heyaaman) 
+This repository is a mix set of other bot repositorys which mentioned on credits above developed By [MickeyxD](https://github.com/MickeyxD) 
 
 ## Find me on telegram 
-[![Telegram](https://img.shields.io/badge/heyaaman-1b77FF.svg?style=for-the-badge&logo=telegram)](https://t.me/heyaaman)
+[![Telegram](https://img.shields.io/badge/MickeyxD-1b77FF.svg?style=for-the-badge&logo=telegram)](https://t.me/MickeyxD)
 
 ### If anything missing on this repository, give a pull request :)
