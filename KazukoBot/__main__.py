@@ -74,7 +74,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-Hey there, I'm Kazuko,
+Hey there, I'm Kawaki,
 
 I am an Anime themed group management bot
 to help maintaining groups with my super advanced features.
@@ -97,7 +97,7 @@ buttons = [
       ],
     [
         InlineKeyboardButton(
-            text="️Add Kazuko to your group", url="t.me/KazukoRobot?startgroup=true",
+            text="️Add Kazuko to your group", url="t.me/Kawaki_Robot?startgroup=true",
         ),
     ],
     [ 
@@ -107,7 +107,7 @@ buttons = [
 
 
 HELP_STRINGS = """
-Hey there! My name is Kazuko.
+Hey there! My name is Kawaki.
 Have a look at the following for an idea of some of
 the things I can help you with.
 Main commands available:
@@ -122,7 +122,7 @@ Main commands available:
 KAZUKO_IMG = "https://telegra.ph/file/6d0f29836fda1effbb4ba.jpg"
 
 DONATE_STRING =  """Heya, glad to hear you want to donate!
- You can support the project via [Paypal](ko-fi.com/heyaaman) or by contacting @heyaaman \
+ You can support the project via [Paypal](ko-fi.com/MickeyxD) or by contacting @MickeyxD \
 """
 
 IMPORTED = {}
@@ -232,8 +232,8 @@ def start(update: Update, context: CallbackContext):
             ),
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Support", url="t.me/KazukoSupportChat"), InlineKeyboardButton(text="Try Inline",switch_inline_query_current_chat=""),
-                  InlineKeyboardButton(text="Updates", url="t.me/KazukoUpdates")]]               
+                [[InlineKeyboardButton(text="Support", url="t.me/KawakiSupportChat"), InlineKeyboardButton(text="Try Inline",switch_inline_query_current_chat=""),
+                  InlineKeyboardButton(text="Updates", url="t.me/KawakiUpdates")]]               
                   
             ),
         )
@@ -427,8 +427,8 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text=""" Hi..🤗 I'm *kazuko*
-                 \nHere is the [Source Code](https://github.com/heyaaman/KazukoBot) .""",
+            text=""" Hi..🤗 I'm *kawaki*
+                 \nHere is the [Source Code](https://github.com/MickeyxD/KawakiBot) .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
